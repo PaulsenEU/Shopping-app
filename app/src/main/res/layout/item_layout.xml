@@ -7,7 +7,7 @@
     app:cardElevation="5dp"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    android:id="@+id/parent">
+    android:id="@+id/parent2">
 
     <RelativeLayout
         android:layout_width="match_parent"

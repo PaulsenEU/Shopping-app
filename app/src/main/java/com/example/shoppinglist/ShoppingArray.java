@@ -22,6 +22,10 @@ public class ShoppingArray {
         itemsList.add(i);
     }
 
+    public Item getItem(int i) {
+        return this.itemsList.get(i);
+    }
+
     public ArrayList<Item> getItemsList() {
         return itemsList;
     }

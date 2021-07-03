@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".shopping_list_activity"
+    android:id="@+id/shoppingListViewLayout">
 
     <RelativeLayout
         android:layout_width="match_parent"

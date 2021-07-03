@@ -23,23 +23,27 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
 
     private static final String TAG = "ListRecyclerView";
 
-    ArrayList<ArrayList<String>> shoppingLists = new ArrayList<>();
+    ArrayList<ShoppingArray> shoppingLists = new ArrayList<>();
     private Context mContext;
+    private RecyclerViewClickListener listener;
 
-    public ListRecyclerViewAdapter(Context mContext) {
+
+    public ListRecyclerViewAdapter(Context mContext, RecyclerViewClickListener listener) {
         this.mContext = mContext;
+        this.listener = listener;
+
     }
 
     @NonNull
     @Override
     public ListRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lists, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout, parent, false);
         return new ListRecyclerViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ListRecyclerViewAdapter.ListRecyclerViewHolder holder, int position) {
-        holder.txtName.setText("XD");
+        holder.txtName.setText("Shopping List");
     }
 
     @Override
@@ -47,13 +51,18 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         return shoppingLists.size();
     }
 
-    public void setShoppingLists(ArrayList<ArrayList<String>> shoppingLists) {
+    public void setShoppingLists(ArrayList<ShoppingArray> shoppingLists) {
         this.shoppingLists = shoppingLists;
         notifyDataSetChanged();
     }
 
 
-    public class ListRecyclerViewHolder extends RecyclerView.ViewHolder {
+    public class ListRecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(itemView, getAdapterPosition());
+        }
 
         private CardView parent;
         public  TextView txtName;
@@ -64,6 +73,14 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
             parent = itemView.findViewById((R.id.parent));
             txtName = itemView.findViewById(R.id.listLayoutTxt);
             imgView = itemView.findViewById(R.id.listLayoutImg);
+            itemView.setOnClickListener(this);
+
         }
+
     }
+
+    public interface RecyclerViewClickListener {
+        void onClick(View v, int position);
+    }
+
 }
