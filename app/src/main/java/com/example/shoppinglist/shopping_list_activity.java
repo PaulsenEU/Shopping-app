@@ -25,8 +25,9 @@ public class shopping_list_activity extends AppCompatActivity  {
         shoppingListRecyclerView.setAdapter(adapter);
         shoppingListRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
+
+        list = new ShoppingArray();
         list.addToList(new Item("apple"));
-        list.addToList(new Item("bread"));
 
         adapter.setList(list);
 

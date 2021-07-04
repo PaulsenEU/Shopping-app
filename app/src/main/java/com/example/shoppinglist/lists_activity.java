@@ -30,10 +30,12 @@ public class lists_activity extends AppCompatActivity  {
         listRecyclerView.setAdapter(adapter);
         listRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
-        ShoppingArray list  = new ShoppingArray();
+        ShoppingArray shoppingList = new ShoppingArray();
 
-        shoppingLists.add(list);
+        shoppingList.addToList(new Item("Apple"));
+        shoppingLists.add(shoppingList);
 
+        shoppingLists.add(shoppingList);
 
         adapter.setShoppingLists(shoppingLists);
 
