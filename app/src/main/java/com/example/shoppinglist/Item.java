@@ -21,4 +21,17 @@ public class Item {
     public int getId() {
         return id;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
